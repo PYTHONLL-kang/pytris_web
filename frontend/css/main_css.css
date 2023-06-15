@@ -1,0 +1,122 @@
+body {
+    background-color: #7F7F7F;
+    overflow: hidden;
+}
+
+input::placeholder {
+    color: #FFFF;
+    font-size: large;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+.form_container {
+    border: 10px solid #000;
+    width: 300px
+}
+
+.setting_container {
+    border: 10px solid #000;
+    width: 95%;
+
+    position: relative;
+    left: 50%;
+
+    transform: translate(-50%, 0%);
+}
+
+.setting_option {
+    padding: 10px;
+
+    position: relative;
+    left: 50%;
+
+    transform: translate(-15%, 0%);
+}
+
+.setting_tytle {
+    position: relative;
+    left: 2.5%;
+    font-size: 25px;
+}
+
+.login_input {
+    color: #FFFF;
+    font-size: large;
+
+    background-color: #4472C4;
+    border: none;
+
+    text-align: center;
+    width: 80%;
+    height: 100px;
+
+    margin: 5%;
+}
+
+.register_input {
+    color: #FFFF;
+    font-size: large;
+
+    background-color: #4472C4;
+    border: none;
+
+    text-align: center;
+    width: 80%;
+    height: 75px;
+
+    margin: 5%;
+}
+
+.i_button {
+    width: 150px;
+    height: 100px;
+    float: right;
+}
+
+.m_button {
+    width: 300px;
+    height: 100px;
+    margin: 10%;
+}
+
+.link {
+    font-size:xx-large;
+    margin: 100px;
+}
+
+#submit_button {
+    position: absolute;
+    top: 90%;
+}
+
+#tytle {
+    max-width: 250px;
+    max-height: 200px;
+    text-align: left;
+}
+
+#about {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 300px;
+}
+
+#github {
+    color: #2E75B6;
+}
+
+#tistory {
+    color: #FFD966;
+}
