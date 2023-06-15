@@ -1,17 +1,10 @@
 from fastapi import FastAPI, Query, Form
 from typing import Annotated, Optional
-from pydantic import BaseModel
-import json
 
-class User(BaseModel):
-    nickname : str
-    nation : str
-    email : str
-    password : str
-    unique_id : int
+from db.database import engine
+from db.data_schema import User
 
 app = FastAPI()
-ID = 0
 
 @app.get("/")
 async def root():
@@ -26,8 +19,7 @@ async def create_user(nickname: str = Form(...), nation: str = Form(...), email:
 
     if len(nickname) > 10:
         return
-    user = User.parse_obj({"nickname" : nickname, "nation" : nation, "email" : email, "password" : password, "unique_id" : ID})
-    ID += 1
+    user = User.parse_obj({"nickname" : nickname, "nation" : nation, "email" : email, "password" : password})
     return user
 
 @app.post("/login/")
