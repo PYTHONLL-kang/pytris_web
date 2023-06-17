@@ -1,11 +1,15 @@
+import datetime
+
 from pydantic import BaseModel, validator, EmailStr
 
 class UserCreate(BaseModel):
+    identifier = int
     nickname: str
     nation : str
     email: EmailStr
     password: str
     password_check: str
+    register_day : datetime.datetime
 
     @validator('nickname', 'nation', 'email', 'password', 'password_check')
     def not_empty(cls, v):
@@ -18,6 +22,8 @@ class UserCreate(BaseModel):
         if 'password' in values and v != values['password']:
             raise ValueError('비밀번호가 일치하지 않습니다')
         return v
+    class Config:
+        orm_mode = True
 
 class User(BaseModel):
     id: int

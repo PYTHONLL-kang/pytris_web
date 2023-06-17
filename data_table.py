@@ -8,6 +8,7 @@ class User(Base):
 
     identifier = Column(Integer, primary_key=True)
     nickname = Column(String, unique=True, nullable=False)
-    password = Column(String, unique=True, nullable=False)
-    nation = Column(String, unique=True, nullable=False)
+    password = Column(String, unique=False, nullable=False)
+    nation = Column(String, unique=False, nullable=False)
     email = Column(String, unique=True, nullable=False)
+    register_day = Column(DateTime, unique=False, nullable=False)
