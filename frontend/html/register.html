@@ -18,6 +18,8 @@
             <div class="form_container">
                 <input class="register_input" type="text" placeholder="nickname" name="nickname" pattern=".{2,20}" title="2 to 20 character" required="required">
                 <br>
+                <input class="register_input" type="email" placeholder="email" name="email" required="required">
+                <br>
                 <select class="register_input" name="nation">
                     <option value="america">America</option>
                     <option value="china">China</option>
@@ -26,8 +28,6 @@
                     <option value="north korea">North Korea</option>
                     <option value="others">Others</option>
                 </select>
-                <br>
-                <input class="register_input" type="email" placeholder="email" name="email" required="required">
                 <br>
                 <input class="register_input" type="password" placeholder="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required="required">
                 <input class="register_input" type="password" placeholder="check password" name="check_password" required="required">

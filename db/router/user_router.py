@@ -22,7 +22,7 @@ def create_user(_user_create : user_schema.UserCreate, db : Session):
     user_crud.create_user(db=db, user_create=_user_create)
 
 @router.post('/create')
-async def read_user(nickname: str = Form(...), nation: str = Form(...), email: str = Form(...), password: str = Form(...), check_password: str = Form(...), db : Session = Depends(get_db)):
-    user = {'nickname' : nickname, 'nation' : nation, 'email' : email, 'password' : password, 'check_password' : check_password}
+async def read_user(nickname: str = Form(...), email: str = Form(...), nation: str = Form(...), password: str = Form(...), check_password: str = Form(...), db : Session = Depends(get_db)):
+    user = {'nickname' : nickname, 'email' : email, 'nation' : nation, 'password' : password, 'check_password' : check_password}
 
     create_user(user, db)
