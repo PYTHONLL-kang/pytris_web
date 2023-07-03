@@ -21,4 +21,7 @@ def get_existing_user(db : Session, user_create : UserCreate):
     return db.query(User).filter(
         (User.nickname == user_create['nickname']) |
         (User.email == ['user_create.email'])
-    )
+    ).first()
+
+def search_user(db :Session, username : str):
+    return db.query(User).filter(User.nickname == username)

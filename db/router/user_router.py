@@ -14,6 +14,7 @@ router = APIRouter(
 
 def create_user(_user_create : user_schema.UserCreate, db : Session):
     user = user_crud.get_existing_user(db, user_create=_user_create)
+    print(user)
     if user:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT,
                             detail="이미 존재하는 사용자입니다")
@@ -26,3 +27,7 @@ async def read_user(nickname: str = Form(...), email: str = Form(...), nation: s
     user = {'nickname' : nickname, 'email' : email, 'nation' : nation, 'password' : password, 'check_password' : check_password}
 
     create_user(user, db)
+
+@router.get('/search/{username}')
+async def search_user(username, db : Session = Depends(get_db)):
+    user_crud.search_user(db, username)
