@@ -6,15 +6,17 @@ from starlette.staticfiles import StaticFiles
 
 from typing import Annotated, Optional
 
-from db.database import engine
-from db.data_schema import User
+from db.router import user_router
 
 app = FastAPI()
 
 origins = [
-    "http://127.0.0.1:5500",  # front
-    "http://localhost:8000",  # back
+    "http://127.0.0.1:5000", # pyg
+    "http://localhost:5500", # front
+    "http://localhost:8000", # back
 ]
+
+app.include_router(user_router.router)
 
 @app.get("/")
 async def root():
@@ -27,15 +29,3 @@ async def front_response():
 @app.get("/ping/{pong}")
 async def test(pong):
     return {"message" : pong}
-
-@app.post("/users/")
-async def create_user(nickname: str = Form(...), nation: str = Form(...), email: str = Form(...), password: str = Form(...)):
-
-    if len(nickname) > 10:
-        return
-    user = User.parse_obj({"nickname" : nickname, "nation" : nation, "email" : email, "password" : password})
-    return user
-
-@app.post("/login/")
-async def validate_user(user : User):
-    pass

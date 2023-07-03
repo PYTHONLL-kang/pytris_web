@@ -14,9 +14,9 @@
     </a>
 
     <div class="container">
-        <form action="http://localhost:8000/users" method="post">
+        <form action="http://localhost:8000/api/user/create" method="post">
             <div class="form_container">
-                <input class="register_input" type="text" placeholder="nickname" name="nickname" pattern=".{5,10}" title="5 to 10 character" required="required">
+                <input class="register_input" type="text" placeholder="nickname" name="nickname" pattern=".{2,20}" title="2 to 20 character" required="required">
                 <br>
                 <select class="register_input" name="nation">
                     <option value="america">America</option>
@@ -24,7 +24,7 @@
                     <option value="Japan">Japan</option>
                     <option value="south korea">South Korea</option>
                     <option value="north korea">North Korea</option>
-                    <option value="others">North Korea</option>
+                    <option value="others">Others</option>
                 </select>
                 <br>
                 <input class="register_input" type="email" placeholder="email" name="email" required="required">
