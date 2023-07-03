@@ -5,11 +5,11 @@ from modules import send_email
 from fastapi import Form
 
 class UserCreate(BaseModel):
-    nickname: str = Form(...)
-    nation: str = Form(...)
-    email: str = Form(...)
-    password: str = Form(...)
-    check_password: str = Form(...)
+    nickname: str
+    nation: str
+    email: str
+    password: str
+    check_password: str
 
     # @validator('nickname', 'nation', 'email', 'password', 'check_password')
     # def not_empty(cls, v):
