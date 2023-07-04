@@ -7,21 +7,18 @@ from models.User import User
 
 def create_user(db : Session, user_create : UserCreate):
     db_user = User(
-                    nickname=user_create.nickname,
-                    password=user_create.password,
-                    nation=user_create.nation,
-                    email=user_create.email,
-                    register_day=datetime.now
+                    nickname=user_create['nickname'],
+                    email=user_create['email'],
+                    nation=user_create['nation'],
+                    password=user_create['password'],
+                    registe_day=datetime.now
                     )
     
     db.add(db_user)
     db.commit()
 
 def get_existing_user(db : Session, user_create : UserCreate):
-    return db.query(User).filter(
-        (User.nickname == user_create['nickname']) |
-        (User.email == ['user_create.email'])
-    ).first()
+    return db.query(User).filter((User.nickname == user_create['nickname'])).first()
 
 def search_user(db :Session, username : str):
     return db.query(User).filter(User.nickname == username)
