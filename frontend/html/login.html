@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pytris-main-login</title>
 
-    <link rel="stylesheet" href="../css\main_css.css">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/main_css.css') }}">
 </head>
 <body>
     <a href="../index.html">
-        <img id=tytle src="image\logo.png" alt="PYTRIS">
+        <img id=tytle src="{{ url_for('static', path='image/logo.png') }}" alt="PYTRIS">
     </a>
 
     <div class="container">
-        <form action="post">
+        <form action="api/user/login/" method="post">
             <div class="form_container">
-                <input class="login_input" type="text" placeholder="nickname" required="required">
+                <input class="login_input" type="text" placeholder="nickname" name="nickname" required="required">
                 <br>
-                <input class="login_input" type="password" placeholder="password" required="required">
+                <input class="login_input" type="password" placeholder="password" name="password" required="required">
                 <br>
             </div>
             <br>

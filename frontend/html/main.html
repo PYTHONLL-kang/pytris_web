@@ -6,20 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pytris-main</title>
 
-    <link rel="stylesheet" href="../css\main_css.css">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/main_css.css') }}">
+
+    <script>
+        function display() {
+            var username = document.getElementById('username').value;
+            console.log(username);
+
+            if (username == 'l') {
+                alert("가입 성공");
+            };
+
+            if (username != 'g') {
+                document.getElementById('not_logined').style.display='none';
+                document.getElementById('logined').style.display='block';
+            }
+
+            else {
+                document.getElementById('not_logined').style.display='block';
+                document.getElementById('logined').style.display='none';
+            };
+        };
+    </script>
 </head>
-<body>
-    <a href="../index.html">
-        <img id=tytle src="image\logo.png" alt="PYTRIS">
+<body onload="display()">
+    <a href="main.html">
+        <img id=tytle src="{{ url_for('static', path='image/logo.png') }}" alt="PYTRIS">
     </a>
 
-    <input class="i_button" type="button" onclick="location.href='register.html'" value="register">
-    <input class="i_button" type="button" onclick="location.href='login.html'" value="login">
+    <div id="not_logined">
+        <input class="i_button" type="button" onclick="location.href='/register'" value="register">
+        <input class="i_button" type="button" onclick="location.href='/login'" value="login">
+    </div>
+
+    <div id="logined" style="display: none;">
+        <button class="i_button" type="button" id="username" value="{{name}}">{{name}}</button>
+    </div>
 
     <div class="container">
         <input class="m_button" type="button" onclick="alert('아직 구현되지 않은 기능입니다')" value="multi">
         <br>
-        <input class="m_button" type="button" onclick="alert('아직 구현되지 않은 기능입니다')" value="solo">
+        <input class="m_button" type="button" onclick="location.href='/solo'" value="solo">
         <br>
         <input class="m_button" type="button" onclick="location.href='setting.html'" value="setting">
     </div>

@@ -3,6 +3,7 @@ import pygame as pg
 from block import Bag, Hold, Stack, BLOCK_SIZE
 from block import black, white, yellow, light_blue, purple, blue, orange, green, red
 import time
+from threading import Thread
 
 pg.init()
 
@@ -94,6 +95,18 @@ def initiate():
     """
     return 9, 0, False, 0, 0, 0
 
+def escape_checker():
+    global escape_time
+    escape_time = 0
+    while True:
+        key = pg.key.get_pressed()
+        while key[pg.K_ESCAPE]:
+            escape_time += 1
+            time.sleep(0.1)
+
+        if escape_time > 3:
+            return True
+
 async def main():
     DAS = 3
     ADD = 10
@@ -125,8 +138,16 @@ async def main():
 
     count_d_line = 0
 
+    # global escape_time
+    # escape_timer = Thread(target=escape_checker)
+    # escape_timer.daemon = True
+    # escape_timer.start()
+
     start_time = int(time.time())
     while not done:
+        # if escape_time > 10:
+        #     done = True
+
         clock.tick(20)
         screen.fill(black)
 
@@ -144,6 +165,7 @@ async def main():
             das_time = 0
 
         key = pg.key.get_pressed()
+
         if key[pg.K_x] or key[pg.K_z] or key[pg.K_a]:
             spin_cnt += 1
         

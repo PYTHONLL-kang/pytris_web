@@ -2,8 +2,6 @@ from pydantic import BaseModel, validator
 from datetime import datetime
 from modules import send_email
 
-from fastapi import Form
-
 class UserCreate(BaseModel):
     nickname: str
     email: str
@@ -32,7 +30,7 @@ class UserCreate(BaseModel):
         
         return email
 
-    @validator('password')
+    @validator('check_password')
     def must_equal(cls, v, values):
         if 'password' in values and v != values['check_passwod']:
             raise ValueError('비밀번호가 일치하지 않습니다')

@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pytris-main-register</title>
 
-    <link rel="stylesheet" href="../css\main_css.css">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/main_css.css') }}">
 </head>
 <body>
-    <a href="../index.html">
-        <img id=tytle src="image\logo.png" alt="PYTRIS">
+    <a href="/f">
+        <img id=tytle src="{{ url_for('static', path='image/logo.png') }}" alt="PYTRIS">
     </a>
 
     <div class="container">
-        <form action="http://localhost:8000/api/user/create" method="post">
+        <form autocomplete="off" action="/api/user/register/" method="post">
             <div class="form_container">
                 <input class="register_input" type="text" placeholder="nickname" name="nickname" pattern=".{2,20}" title="2 to 20 character" required="required">
                 <br>
