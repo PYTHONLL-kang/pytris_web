@@ -1,5 +1,5 @@
 body {
-    background-color: #7F7F7F;
+    background-color: #AFAFAF;
     overflow: hidden;
 }
 
@@ -82,12 +82,14 @@ a {
     width: 150px;
     height: 100px;
     float: right;
+    font-size: 150%;
 }
 
 .m_button {
     width: 300px;
     height: 100px;
     margin: 10%;
+    font-size: 200%;
 }
 
 .link {

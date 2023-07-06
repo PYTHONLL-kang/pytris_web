@@ -1,6 +1,6 @@
 from pydantic import BaseModel, validator
 from datetime import datetime
-from modules import send_email
+from utility import send_email
 
 class UserCreate(BaseModel):
     nickname: str

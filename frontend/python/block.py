@@ -299,8 +299,8 @@ class Hold:
         if self.holding == None:
             return None
 
-        self.holding.X = 0
-        self.holding.Y = 0
+        self.holding.X = 1
+        self.holding.Y = 4
         self.holding.draw_mino(0)
 
 class Stack:

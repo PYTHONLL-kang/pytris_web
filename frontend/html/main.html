@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pytris-main</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', path='css/main_css.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}">
 
     <script>
         function display() {
@@ -34,19 +34,16 @@
         <img id=tytle src="{{ url_for('static', path='image/logo.png') }}" alt="PYTRIS">
     </a>
 
-    <div id="not_logined">
-        <input class="i_button" type="button" onclick="location.href='/register'" value="register">
-        <input class="i_button" type="button" onclick="location.href='/login'" value="login">
-    </div>
+    <input class="i_button" id="not_logined" type="button" onclick="location.href='/register'" value="register">
+    <input class="i_button" id="not_logined" type="button" onclick="location.href='/login'" value="login">
 
-    <div id="logined" style="display: none;">
-        <button class="i_button" type="button" id="username" value="{{name}}">{{name}}</button>
-    </div>
+    <button class="i_button" id="logined" style="display: none;" type="button" id="username" value="{{name}}">{{name}}</button>
 
     <div class="container">
         <input class="m_button" type="button" onclick="alert('아직 구현되지 않은 기능입니다')" value="multi">
         <br>
-        <input class="m_button" type="button" onclick="location.href='/solo'" value="solo">
+        <!-- <input class="m_button" type="button" onclick="location.href='/solo'" value="solo"> -->
+        <input class="m_button" type="button" onclick="alert('아직 구현되지 않은 기능입니다')" value="solo">
         <br>
         <input class="m_button" type="button" onclick="location.href='setting.html'" value="setting">
     </div>
